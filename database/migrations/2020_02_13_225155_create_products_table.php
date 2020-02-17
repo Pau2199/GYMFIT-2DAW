@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->float('iva');
             $table->float('discount');
+            $table->float('weight');
             $table->bigInteger('idCategoria')->unsigned();
             $table->timestamps();
         });
