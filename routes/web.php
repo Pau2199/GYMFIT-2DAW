@@ -13,7 +13,7 @@
 
 
 Route::get('/', function(){
-    return view('crudProductos');
+    return view('vistaPerfil');
 });
 
 Route::get('/formAgregarProducto', 'ProductController@create');

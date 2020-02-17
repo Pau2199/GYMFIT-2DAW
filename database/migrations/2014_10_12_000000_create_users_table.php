@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email',100);
             $table->string('firts_surname',100);
             $table->string('second_surname',100);
+            $table->Date('date_birth');
             $table->string('role',100);
         });
     }
