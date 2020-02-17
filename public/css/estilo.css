@@ -31,7 +31,6 @@ header{
 .fondoCopyEnlaces{
     background-color: #222831;
 }
-<<<<<<< HEAD
 
 tr td img{
     width: 25px;
@@ -46,21 +45,10 @@ tr td img{
 .imgaenesProductos{
     width: 300px;
     height: 300px;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> master
-=======
+
 }
 .imagenVistaProducto{
     width: 50px;
     height: 400px;
     border: 2px solid black;
-}
-.carousel, .carousel-inner > .item {
-    width: 571.9px;
-    height: 571.9px;
-    border: 2px solid black;
->>>>>>> pau
-=======
->>>>>>> pau
 }

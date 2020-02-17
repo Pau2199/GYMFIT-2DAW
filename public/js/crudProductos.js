@@ -4,7 +4,7 @@ $(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')     
         }
     }); 
-    $('#subCategoriaDiv').css('display', 'none');
+    $('#subCategoriaDiv').hide();
 
     $('#categoria').blur(function(){
         if($(this).val() == 'Ropa'){

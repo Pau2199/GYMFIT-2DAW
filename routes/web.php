@@ -13,8 +13,9 @@
 
 
 Route::get('/', function(){
-    return view('index');
+    return view('crudProductos');
 });
+
 Route::get('/formAgregarProducto', 'ProductController@create');
 Route::post('/agregarProducto', 'ProductController@store');
 //Route::get('/MostrarProducto/{id}', 'ProductController@show');
