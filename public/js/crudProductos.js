@@ -12,19 +12,38 @@ $(function(){
         };
 
         var request = $.ajax({
-            url: "mostrarProductos",
-            method: "POST",
-            data: {categoria : $(this).val()},
-            dataType: "html",
+            url: "/mostrarProductos/"+$(this).val(),
+            method: "GET",
+            success: function(data){
+                                console.log(data);
+                var td;
+                for(var i = 0 ; i<data.length ; i++){
+                    var tr = $('<tr>');
+                    $('#agregarElemento').append(tr);
+                    //                    console.log(data[i]);
+                    var imgLupa = $('<img>').attr({
+                        src: "../img/lupa.svg",
+                        alt: "Lupa"
+                    });
+                    td = $('<td>');
+                    tr.append(td);
+                    td.append(imgLupa);
+                    for(var clave in data[i]){
+                        td = $('<td>');
+                        tr.append(td);
+                        td.html(data[i][clave]);
+                        //                        console.log(data[i][clave]);
+                    }
+                    var img = $('<img>').attr({
+                        src: "../img/trash.svg",
+                        alt: "Papelera"
+                    });
+                    td = $('<td>');
+                    tr.append(td);
+                    td.append(img);
+                }
+            },
+            dataType: "json",
         });
-        console.log(request)
-        request.onreadystatechange = function(){
-            console.log('pasas');
-            if(request.readyState == 4 && request.status == 200){
-                console.log(request.responseText);
-            }else{
-                console.log('as');
-            }
-        }
     });
 });

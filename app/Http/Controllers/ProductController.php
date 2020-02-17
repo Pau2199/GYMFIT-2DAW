@@ -51,8 +51,13 @@ class ProductController extends Controller
         $file = $request->file('file');
         foreach ($file as $valor){
             $image = new Image;
-            Storage::disk('local')->put($request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName(),  \File::get($valor));
-            $image->ruta = $request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();
+            if($request->category == 'Ropa'){
+                Storage::disk('public')->put($request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName(),  \File::get($valor));
+                $image->ruta = $request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();   
+            }else{
+                Storage::disk('public')->put($request->category.'/'.$valor->getClientOriginalName(),  \File::get($valor));
+                $image->ruta = $request->category.'/'.$valor->getClientOriginalName();
+            }
             $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
             $image->save();   
         }
@@ -66,7 +71,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $productos = DB::select('SELECT * FROM products p , category c WHERE c.name = '.$id.' AND c.id = p.idCategoria');
+
     }
 
     /**
@@ -103,8 +108,8 @@ class ProductController extends Controller
         //
     }
 
-    public function peticionAjax(){
-        $valor = $_POST['categoria'];
-        return $valor;
+    public function peticionAjax($categoria){
+        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, c.name FROM products p , category c WHERE c.name = "'.$categoria.'" AND c.id = p.idCategoria');
+
     }
 }
