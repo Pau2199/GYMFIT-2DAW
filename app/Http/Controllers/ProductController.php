@@ -71,7 +71,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $productos = DB::select('SELECT * FROM products p , category c WHERE c.name = '.$id.' AND c.id = p.idCategoria');
+
     }
 
     /**
@@ -108,7 +108,8 @@ class ProductController extends Controller
         //
     }
 
-    public function peticionAjax(){
-        return $categoria;
+    public function peticionAjax($categoria){
+        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, c.name FROM products p , category c WHERE c.name = "'.$categoria.'" AND c.id = p.idCategoria');
+
     }
 }

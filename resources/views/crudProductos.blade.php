@@ -63,7 +63,8 @@
                                 <th scope="col" class="text-dark">borr</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="agregarElemento">
+<!--
                             <tr>
                                 <td><img src="{{asset('img/lupa.svg')}}" alt=""></td>
                                 <td>Pantalones Leggins</td>
@@ -108,17 +109,7 @@
                                 <td>Pantalones</td>
                                 <td><img src="{{asset('img/trash.svg')}}" alt="papelera"></td>
                             </tr>
-                            <tr>
-                                <td><img src="{{asset('img/lupa.svg')}}" alt=""></td>
-                                <td>Pantalones Leggins</td>
-                                <td>Nike</td>
-                                <td>Pantalones Leggins fabricados en china con particulas de carbono y de color azul</td>
-                                <td>29,99€</td>
-                                <td>0%</td>
-                                <td>Ropa</td>
-                                <td>Pantalones</td>
-                                <td><img src="{{asset('img/trash.svg')}}" alt="papelera"></td>
-                            </tr>
+-->
                         </tbody>
                     </table>
                 </div>
