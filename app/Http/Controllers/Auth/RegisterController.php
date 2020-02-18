@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'nif' => ['required'],
             'firts_surname' => ['required'],
             'second_surname' => ['required'],
+            'date_birth' => ['required'],
             'role' => ['required']
         ]);
     }
@@ -76,6 +77,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'firts_surname' => $data['firts_surname'],
             'second_surname' => $data['second_surname'],
+            'date_birth' => $data['date_birth'],
             'role' => $data['role']
         ]);
     }
