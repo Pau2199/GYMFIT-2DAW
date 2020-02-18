@@ -23,7 +23,9 @@ Route::get('/mostrar', function(){
     return view('crudProductos');
 });
 
-Route::post('/mostrarProductos', 'ProductController@peticionAjax');
+Route::get('/mostrarProductos/{categoria}', 'ProductController@peticionAjax');
+Route::get('/eliminarProducto/{id}', 'ProductController@destroy');
+Route::get('/obtenerImagenes/{id}', 'ImageController@obtenerRutas');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
