@@ -58,6 +58,7 @@
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Descuento</th>
+                                <th scope="col">Peso</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Subcategoria</th>
                                 <th scope="col" class="text-dark">borr</th>
