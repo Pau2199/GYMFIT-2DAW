@@ -10,7 +10,7 @@
             </form>
         </div>
         <div class="d-none d-md-block col-md-2">
-            <a href="{{{ Auth::user() ? url('perfil/{id}') : url('login') }}}"><img class="svgTamanyo iconosMovil ml-5" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
+            <a href="{{{ Auth::user() ? url('perfil') : url('login') }}}"><img class="svgTamanyo iconosMovil ml-5" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
 
 
             <a href=""  class="botonCabecera"><img class="svgTamanyo iconosMovil ml-4" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
