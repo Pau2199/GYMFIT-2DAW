@@ -105,11 +105,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
     }
 
     public function peticionAjax($categoria){
-        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, c.name FROM products p , category c WHERE c.name = "'.$categoria.'" AND c.id = p.idCategoria');
+        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'" AND c.id = p.idCategoria');
 
     }
 }

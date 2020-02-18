@@ -24,6 +24,7 @@ Route::get('/mostrar', function(){
 });
 
 Route::get('/mostrarProductos/{categoria}', 'ProductController@peticionAjax');
+Route::get('/eliminarProducto/{id}', 'ProductController@destroy');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
