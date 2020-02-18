@@ -45,14 +45,19 @@ class ProductController extends Controller
         $producto->price = $request->price;
         $producto->iva = 21;
         $producto->discount = $request->discount;
-        $producto->idCategoria=DB::table('category')->select('id')->where('name', $request->category)->get()[0]->id;
+        $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
+        $producto->weight = 21;
         $producto->save();
 
         $file = $request->file('file');
         foreach ($file as $valor){
             $image = new Image;
-            Storage::disk('local')->put($request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName(),  \File::get($valor));
-            $image->ruta = $request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();
+            if($request->category == 'Ropa'){
+                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();   
+            }else{
+                $image->move('subidas', $valor->getClientOriginalName());
+                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();
+            }
             $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
             $image->save();   
         }
@@ -66,7 +71,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $productos = DB::select('SELECT * FROM products p , category c WHERE c.name = '.$id.' AND c.id = p.idCategoria');
+
     }
 
     /**
@@ -100,11 +105,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
     }
 
-    public function peticionAjax(){
-        $valor = $_POST['categoria'];
-        return $valor;
+    public function peticionAjax($categoria){
+        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'" AND c.id = p.idCategoria');
+
     }
 }

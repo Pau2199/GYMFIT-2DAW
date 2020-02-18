@@ -58,10 +58,10 @@
                     <select name="subCategory" class="form-control">
                         <option>Selecciona una subcategoria</option>
                         <option>Camisetas</option>
-                        <option>Sudadera</option>
+                        <option>Sudaderas</option>
                         <option>Tops</option>
                         <option>Pantalones</option>
-                        <option>Calzado</option>
+                        <option>Zapatillas</option>
                     </select>
                 </div>
                 <input type="file" name="file[]" multiple="">

@@ -13,8 +13,9 @@
 
 
 Route::get('/', function(){
-    return view('index');
+    return view('vistaPerfil');
 });
+
 Route::get('/formAgregarProducto', 'ProductController@create');
 Route::post('/agregarProducto', 'ProductController@store');
 //Route::get('/MostrarProducto/{id}', 'ProductController@show');
@@ -22,7 +23,9 @@ Route::get('/mostrar', function(){
     return view('crudProductos');
 });
 
-Route::post('/mostrarProductos', 'ProductController@peticionAjax');
+Route::get('/mostrarProductos/{categoria}', 'ProductController@peticionAjax');
+Route::get('/eliminarProducto/{id}', 'ProductController@destroy');
+Route::get('/obtenerImagenes/{id}', 'ImageController@obtenerRutas');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();

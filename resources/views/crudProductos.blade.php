@@ -24,26 +24,26 @@
                         <div class="form-group">
                             <label for="categoria">Categoria</label>
                             <select class="form-control" id="categoria">
-                                <option>Seleccione una categoria...</option>
-                                <option>Ropa</option>
-                                <option>Accesorios</option>
-                                <option>Maquinas</option>
+                                <option value="">Seleccione una categoria...</option>
+                                <option value="ropa">Ropa</option>
+                                <option value="accesorios">Accesorios</option>
+                                <option value="maquinas">Maquinas</option>
                             </select>
                         </div> 
                         <div class="form-group" id="subCategoriaDiv">
                             <label for="subcategoria">Subcategoria</label>
                             <select class="form-control" id="subcategoria">
-                                <option>Seleccione una subcategoria</option>
-                                <option>Camisetas</option>
-                                <option>Sudaderas</option>
-                                <option>Tops</option>
-                                <option>Pantalones</option>
-                                <option>Calzado</option>
+                                <option value="">Seleccione una subcategoria</option>
+                                <option value="camisetas">Camisetas</option>
+                                <option value="sudaderas">Sudaderas</option>
+                                <option value="tops">Tops</option>
+                                <option value="pantalones">Pantalones</option>
+                                <option value="calzado">Calzado</option>
                             </select>
                         </div>
                         <div class="form-inline my-5">
                             <input class="form-control mr-sm-2" type="text" id="buscarProducto" placeholder="Buscar producto" aria-label="Buscar">
-                            <button class="btn btn-outline-success ml-sm-3" type="submit" id="buscarProducto">Buscar</button>
+                            <button class="btn btn-outline-success ml-sm-3" type="submit">Buscar</button>
                         </div>
 
                     </form>
@@ -58,12 +58,14 @@
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Descuento</th>
+                                <th scope="col">Peso</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Subcategoria</th>
                                 <th scope="col" class="text-dark">borr</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="agregarElemento">
+<!--
                             <tr>
                                 <td><img src="{{asset('img/lupa.svg')}}" alt=""></td>
                                 <td>Pantalones Leggins</td>
@@ -108,17 +110,7 @@
                                 <td>Pantalones</td>
                                 <td><img src="{{asset('img/trash.svg')}}" alt="papelera"></td>
                             </tr>
-                            <tr>
-                                <td><img src="{{asset('img/lupa.svg')}}" alt=""></td>
-                                <td>Pantalones Leggins</td>
-                                <td>Nike</td>
-                                <td>Pantalones Leggins fabricados en china con particulas de carbono y de color azul</td>
-                                <td>29,99€</td>
-                                <td>0%</td>
-                                <td>Ropa</td>
-                                <td>Pantalones</td>
-                                <td><img src="{{asset('img/trash.svg')}}" alt="papelera"></td>
-                            </tr>
+-->
                         </tbody>
                     </table>
                 </div>
