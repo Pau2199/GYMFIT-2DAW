@@ -60,8 +60,9 @@ $(function(){
     $('#agregarElemento').on('click', 'img.papelera', function(){
         var padre = $(this).parent().parent();
         console.log(padre);
+        padre = padre.split('P')[1];
         $.ajax({
-            url: 'eliminarProducto/'+ $(this).attr('id'),
+            url: 'eliminarProducto/'+ padre,
             method: 'GET',
             success: function(){
                 padre.remove();
@@ -69,25 +70,28 @@ $(function(){
         });
     })
     $('#agregarElemento').on('click', 'img.lupa', function(){
+        var padre = $(this).parent().parent();
+        console.log(padre);
+        padre = padre.attr('id').split('P')[1];
         $.ajax({
-            url: 'obtenerImagenes/5',
+            url: 'obtenerImagenes/'+padre,
             method: 'GET',
             success: function(data){
                 console.log(data);
-                //                var RutaImagen = data.split('[')[1].split(']')[0];
-                //                RutaImagen = RutaImagen.split(':')[1].split('"')[1];
-                //                RutaImagen = RutaImagen.split('/');
-                //                for (var i = 0 ; i<RutaImagen.length ; i++){
-                //                     console.log(RutaImagen[i]);
-                //                }
-                console.log(data);
-                var RutaLocalizacion = data.split('[')[0];
-                console.log(RutaLocalizacion + '\\public\\Ropa\\Sudaderas\\pantalon2.jpg');
-                var img = $('<img>').attr('src' , '\\Ropa\\Sudaderas\\pantalon2.jpg');
-                $('<body>').append(img);
-                console.log(img);
+                var img = $('<img>').attr({
+                    src: '../storage/img/'+data[0].ruta,
+                    alt: 'prueba'
+                })
+                var div = $('<div>').css('width', window.innerWidth);
+                div.css('height', window.innerHeight);
+                div.attr({
+                    class: 'extra',
+                    id: 'divImagenes'
+                })
+                div.append(img);
+                $('body').append(div);
             },
-            dataType: 'html'
+            dataType: 'json'
         });
 
     });
@@ -105,12 +109,11 @@ $(function(){
         }
 
     });
-    
+
     $('#agregarElemento').on('blur', '#inputGenerado', function(){
-        var padre = 
         $.ajax({
             url: 'ModificarProducto'
-            
+
         })
         $(this).remove();
     })

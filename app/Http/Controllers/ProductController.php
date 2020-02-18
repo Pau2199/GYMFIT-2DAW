@@ -50,16 +50,16 @@ class ProductController extends Controller
         $producto->save();
 
         $file = $request->file('file');
-//echo '<pre>';var_dump($file);echo '</pre>';
+        //echo '<pre>';var_dump($file);echo '</pre>';
 
         foreach ($file as $valor){
-//echo '<pre>';var_dump($valor);echo '</pre>';
+            //echo '<pre>';var_dump($valor);echo '</pre>';
             //die;
             $image = new Image;
             $ultimoId = DB::select('SELECT MAX(id) FROM images');
 
             if($ultimoId[0]->{'MAX(id)'} == null){
-                $ultimoId = 0;
+                $ultimoId = 1;
             }else{
                 $ultimoId = $ultimoId[0]->{'MAX(id)'};
                 $ultimoId += 1;
@@ -123,6 +123,7 @@ class ProductController extends Controller
 
     public function peticionAjax($categoria){
         return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'"');
+
 
 
     }
