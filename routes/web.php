@@ -13,7 +13,7 @@
 
 
 Route::get('/', function(){
-    return view('vistaPerfil');
+    return view('index');
 });
 
 Route::get('/formAgregarProducto', 'ProductController@create');
@@ -29,3 +29,7 @@ Route::get('/obtenerImagenes/{id}', 'ImageController@obtenerRutas');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
+
+Route::get('/perfil','UserController@perfil');
+Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
+Route::get('/perfil/rellenarDireccion','UserController@verDireccion');
