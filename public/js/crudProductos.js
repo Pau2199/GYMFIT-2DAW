@@ -49,6 +49,7 @@ $(function(){
                     td = $('<td>');
                     td = $('<td>').attr('class', 'papelera');
                     tr.append(td);
+                    tr.attr('id', 'P'+id);
                     td.append(img);
                 }
             },
@@ -79,9 +80,10 @@ $(function(){
                 //                for (var i = 0 ; i<RutaImagen.length ; i++){
                 //                     console.log(RutaImagen[i]);
                 //                }
+                console.log(data);
                 var RutaLocalizacion = data.split('[')[0];
                 console.log(RutaLocalizacion + '\\public\\Ropa\\Sudaderas\\pantalon2.jpg');
-                var img = $('<img>').attr('src' , RutaLocalizacion + '\\public\\Ropa\\Sudaderas\\pantalon2.jpg');
+                var img = $('<img>').attr('src' , '\\Ropa\\Sudaderas\\pantalon2.jpg');
                 $('<body>').append(img);
                 console.log(img);
             },
@@ -105,7 +107,11 @@ $(function(){
     });
     
     $('#agregarElemento').on('blur', '#inputGenerado', function(){
-        console.log('prueba');
+        var padre = 
+        $.ajax({
+            url: 'ModificarProducto'
+            
+        })
         $(this).remove();
     })
 });

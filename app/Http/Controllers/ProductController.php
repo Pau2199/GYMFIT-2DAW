@@ -50,16 +50,29 @@ class ProductController extends Controller
         $producto->save();
 
         $file = $request->file('file');
+//echo '<pre>';var_dump($file);echo '</pre>';
+
         foreach ($file as $valor){
+//echo '<pre>';var_dump($valor);echo '</pre>';
+            //die;
             $image = new Image;
-            if($request->category == 'Ropa'){
-                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();   
+            $ultimoId = DB::select('SELECT MAX(id) FROM images');
+
+            if($ultimoId[0]->{'MAX(id)'} == null){
+                $ultimoId = 0;
             }else{
-                $image->move('subidas', $valor->getClientOriginalName());
-                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();
+                $ultimoId = $ultimoId[0]->{'MAX(id)'};
+                $ultimoId += 1;
             }
+
+            $image->ruta = $ultimoId . '.'. $valor->getClientOriginalExtension();
             $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
-            $image->save();   
+            $image->save();
+            $path = $valor->storeAs('img', $image->ruta, 'public');
+            //die($path);
+            //Storage::disk('img')->put($valor->getClientOriginalName(), 'Contents');
+            //rename('/public/'.$valor->getClientOriginalName() , '/public/'.$ultimoId .'.'.$valor->getClientOriginalExtension());
+
         }
     }
 
@@ -109,7 +122,8 @@ class ProductController extends Controller
     }
 
     public function peticionAjax($categoria){
-        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'" AND c.id = p.idCategoria');
+        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'"');
+
 
     }
 }
