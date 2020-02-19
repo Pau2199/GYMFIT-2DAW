@@ -13,7 +13,7 @@
 
 
 Route::get('/', function(){
-    return view('index');
+    return view('vistaCarrito');
 });
 
 Route::get('/formAgregarProducto', 'ProductController@create');
