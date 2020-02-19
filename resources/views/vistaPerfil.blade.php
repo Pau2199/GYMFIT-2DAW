@@ -23,68 +23,68 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="nombre" class="font-weight-bold">Nombre</label>
-                                <input type="text" class="form-control" name="name" id="nombrePerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="name" id="nombrePerfil" readonly="readonly">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="apellidos" class="font-weight-bold">Apellidos</label>
-                                <input type="text" class="form-control" name="apellidos" id="apellidosPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="apellidos" id="apellidosPerfil" readonly>
                             </div>
                         </div>     
                         <div class="form-row">
                             <div class="form-group col-md-8">
                                 <label for="correo" class="font-weight-bold">Correo Electronico</label>
-                                <input type="email" class="form-control" name="email" id="correoPerfil" readonly=''>
+                                <input type="email" class="form-control readonly" name="email" id="correoPerfil" readonly>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="fechNac" class="font-weight-bold">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control" name="fechNac" id="fechPerfil" readonly=''>
+                                <input type="date" class="form-control readonly" name="fechNac" id="fechPerfil" readonly>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="via" class="font-weight-bold">Via</label>
-                                <input type="text" class="form-control" name="via" id="viaPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="via" id="viaPerfil" readonly>
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="fechNac" class="font-weight-bold">Nombre de la Via</label>
-                                <input type="text" class="form-control" name="nombre_via" id="nomViaPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="nombreVia" id="nomViaPerfil" readonly>
                             </div>
                         </div>
                         <div class="form-row justify-content-between">
                             <div class="form-group col-md-3">
                                 <label for="numero" class="font-weight-bold">Numero</label>
-                                <input type="text" class="form-control" name="numero" id="numeroPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="numero" id="numeroPerfil" readonly>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="puerta" class="font-weight-bold">Puerta</label>
-                                <input type="text" class="form-control" name="puerta" id="puertaPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="puerta" id="puertaPerfil" readonly>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="piso" class="font-weight-bold">Piso</label>
-                                <input type="text" class="form-control" name="piso" id="pisoPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="piso" id="pisoPerfil" readonly>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-5">
                                 <label for="provincia" class="font-weight-bold">Provincia</label>
-                                <input type="text" class="form-control" name="provincia" id="provinciaPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="provincia" id="provinciaPerfil" readonly>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="localidad" class="font-weight-bold">Localidad</label>
-                                <input type="text" class="form-control" name="localidad" id="localidadPerfil" readonly=''>
+                                <input type="text" class="form-control readonly" name="localidad" id="localidadPerfil" readonly>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="cpostal" class="font-weight-bold">C.P</label>
-                                <input type="text" class="form-control" name="codigoPostal" id="cpostalPerfil" readonly=''=''>
+                                <input type="text" class="form-control readonly" name="codigoPostal" id="cpostalPerfil" readonly>
                             </div>
                         </div> 
                         <div class="form-row justify-content-center ">
                             <div class="text-center mx-2">
-                                <span id="modificarDatos" class="btn btn-primary">Modificar datos</span>
+                                <span id="modificarDatos" class="btn btn-primary" name="modificar">Modificar datos</span>
                             </div>                        
                             <div class="text-center mx-2 ">
-                                <span id="guardarDatos" class="btn btn-success d-none">Guardar datos</span>
+                                <span id="guardarDatos" class="btn btn-success d-none" name="guardar">Guardar datos</span>
                             </div>
                         </div>
 
@@ -99,21 +99,21 @@
                     <div class="form-row justify-content-between">
                         <div class="form-group col-md-4">
                             <label for="idPedido" class="font-weight-bold">Id del Pedido</label>
-                            <input type="text" class="form-control" id="idPedido" readOnly=''>
+                            <input type="text" class="form-control" id="idPedido" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="fechaPedido" class="font-weight-bold">Fecha del Pedido</label>
-                            <input type="date" class="form-control" id="fechaPedido" readOnly=''>
+                            <input type="date" class="form-control" id="fechaPedido" readonly>
                         </div>
                     </div> 
                     <div class="form-row justify-content-between">
                         <div class="form-group col-md-4">
                             <label for="metodoPedido" class="font-weight-bold">Metodo de Pago</label>
-                            <input type="text" class="form-control" id="metodoPedido" readOnly=''>
+                            <input type="text" class="form-control" id="metodoPedido" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="precioPedido" class="font-weight-bold">Precio Total</label>
-                            <input type="text" class="form-control" id="precioPedido" readOnly=''>
+                            <input type="text" class="form-control" id="precioPedido" readonly>
                         </div>
                     </div> 
 

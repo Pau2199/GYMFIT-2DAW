@@ -19,19 +19,45 @@ $(function(){
     });
 
     $('#modificarDatos').click(function(){
-//        $(this).preventDefault();
-        var input = $('input');
+        var input = $('input.readonly');
         for(var i = 0 ; i<input.length ; i++){
-            console.log(input);
-           input[i].removeClass("readOnly");;
+            input.removeAttr('readonly');
         };
         $(this).hide();
-        $('#guardarDatos').show();
-    })
+        $('#guardarDatos').removeClass('d-none');
+    });
 
     $('#guardarDatos').click(function(){
-        $(this).preventDefault();
-        console.log($(this).val());
+        var inputvacio = false;
+        var input = $('input.readonly');
+        var arrayJson;
+        input.each(function(){
+            if($(this).val() == "" && (($(this).attr('id') != "puertaPerfil") && ($(this).attr('id') != "pisoPerfil")) ){
+                inputvacio = true;
+            }
+        });
+
+        arrayJson = {via: $('#viaPerfil').val() , nombreVia: $('#nomViaPerfil').val() , numero : $('#numeroPerfil').val() , puerta : $('#puertaPerfil').val() , piso : $('#pisoPerfil').val() , provincia : $('#provinciaPerfil').val() , localidad :  $('#localidadPerfil').val() , cp : $('#cpostalPerfil').val()}
+
+        arrayJson = JSON.stringify(arrayJson);
+
+        console.log(arrayJson);
+
+        if(!inputvacio){
+            $.ajax({
+                url: "/perfil/rellenarDireccion/"+arrayJson,
+                method: "GET",
+                success: function(data){
+                    $('#guardarDatos').hide();
+                    $('#modificarDatos').show();
+                    var input = $('input.readonly');
+                    for(var i = 0 ; i<input.length ; i++){
+                        input.attr('readonly','readonly');
+                    };
+                },                
+            });
+        }
+
     });
 
 
