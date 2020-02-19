@@ -67,6 +67,7 @@ $(function(){
             url: 'obtenerMasInfo/'+padre,
             method: 'GET',
             success: function(data){
+                console.log(data);
                 var div = $('<div>').css('width', window.innerWidth);
                 div.css('height', window.innerHeight);
                 div.attr({

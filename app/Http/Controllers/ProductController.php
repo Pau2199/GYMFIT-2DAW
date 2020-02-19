@@ -8,6 +8,7 @@ use DB;
 use App\Product;
 use App\Image;
 use App\Categorie;
+use App\Stock;
 
 class ProductController extends Controller
 {
@@ -70,7 +71,7 @@ class ProductController extends Controller
             $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
             $image->save();
             $path = $valor->storeAs('img', $image->ruta, 'public');
-            
+
             return view('agregarProducto');
 
         }
@@ -124,16 +125,23 @@ class ProductController extends Controller
     }
 
     public function productosCategoria($categoria){
-//        $subCategoria;
-//        if($subCategoria != null){
-//            $subCategoria = Categorie::all()->where('name_category', '=', $categoria);
-//        }
+        //        $subCategoria;
+        //        if($subCategoria != null){
+        //            $subCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        //        }
         $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
         $productos = Product::all()->where('idCategoria', $datosCategoria[0]['id']);
         return array($productos, $datosCategoria[0]['name_category']);
     }
-    
+
     public function productosSubCategoria($subCategoria){
-        
+
     }
+
+    public function vistaProductos($categoria){
+        $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, i.ruta, s.quantity, s.colour, s.size FROM products p , images i, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = i.idProducto AND p.id = s.idProducto');
+        return view('vistaCategoria')->with('productos', $productos);
+    }
+
 }

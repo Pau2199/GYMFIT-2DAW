@@ -31,5 +31,8 @@ Route::get('/modificarProducto/{id}/{columna}/{datoNuevo}', 'ProductController@e
 Route::get('/obtenerMasInfo/{id}', 'ImageController@obtenerMasInfo');
 Route::get('/modificarDatosStock/{id}/{datoNuevo}/{columna}', 'StockController@modificarDatosStock');
 
+Route::get('/categoria/{ropa}', 'ProductController@vistaProductos');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
