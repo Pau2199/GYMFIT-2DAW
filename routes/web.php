@@ -13,7 +13,7 @@
 
 
 Route::get('/', function(){
-    return view('vistaCarrito');
+    return view('index');
 });
 
 Route::get('/formAgregarProducto', 'ProductController@create');
@@ -32,4 +32,4 @@ Auth::routes();
 
 Route::get('/perfil','UserController@perfil');
 Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
-Route::get('/perfil/rellenarDireccion','UserController@verDireccion');
+Route::get('/perfil/rellenarDireccion{datosDireccion}','UserController@crearDireccion');
