@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Product;
 use App\Image;
+use App\Categorie;
 
 class ProductController extends Controller
 {
@@ -69,9 +70,8 @@ class ProductController extends Controller
             $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
             $image->save();
             $path = $valor->storeAs('img', $image->ruta, 'public');
-            //die($path);
-            //Storage::disk('img')->put($valor->getClientOriginalName(), 'Contents');
-            //rename('/public/'.$valor->getClientOriginalName() , '/public/'.$ultimoId .'.'.$valor->getClientOriginalExtension());
+            
+            return view('agregarProducto');
 
         }
     }
@@ -93,9 +93,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $columna, $datoNuevo)
     {
-        //
+        $producto = Product::find($id);
+        $producto->$columna = $datoNuevo;
+        $producto->save();
     }
 
     /**
@@ -121,10 +123,17 @@ class ProductController extends Controller
         Product::destroy($id);
     }
 
-    public function peticionAjax($categoria){
-        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'"');
-
-
-
+    public function productosCategoria($categoria){
+//        $subCategoria;
+//        if($subCategoria != null){
+//            $subCategoria = Categorie::all()->where('name_category', '=', $categoria);
+//        }
+        $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        $productos = Product::all()->where('idCategoria', $datosCategoria[0]['id']);
+        return array($productos, $datosCategoria[0]['name_category']);
+    }
+    
+    public function productosSubCategoria($subCategoria){
+        
     }
 }

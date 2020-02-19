@@ -27,3 +27,9 @@ tbody tr:hover{
     background-color: rgba(0,0,0,.4);
     text-align: center;
 }
+img{
+    width: 350px;
+    height: 350px;
+    margin-top: 2%;
+    margin-left: 5%;
+}

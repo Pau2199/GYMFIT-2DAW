@@ -44,7 +44,13 @@
             <a class="nav-link" href="#">Accesorios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Administrar Pagina</a>
+            <a class="nav-link" href="{{url('formAgregarProducto')}}">Agregar Producto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('mostrar')}}">Listado Productos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Listado Usuarios</a>
         </li>
     </ul>
     <div class="d-md-none d-block">

@@ -13,7 +13,7 @@
 
 
 Route::get('/', function(){
-    return view('vistaPerfil');
+    return view('index');
 });
 
 Route::get('/formAgregarProducto', 'ProductController@create');
@@ -23,9 +23,13 @@ Route::get('/mostrar', function(){
     return view('crudProductos');
 });
 
-Route::get('/mostrarProductos/{categoria}', 'ProductController@peticionAjax');
+Route::get('/mostrarProductos/{categoria}', 'ProductController@productosCategoria');
+Route::get('/mostrarProductos/{subCategoria}', 'ProductController@productosSubCategoria');
+
 Route::get('/eliminarProducto/{id}', 'ProductController@destroy');
-Route::get('/obtenerImagenes/{id}', 'ImageController@obtenerRutas');
+Route::get('/modificarProducto/{id}/{columna}/{datoNuevo}', 'ProductController@edit');
+Route::get('/obtenerMasInfo/{id}', 'ImageController@obtenerMasInfo');
+Route::get('/modificarDatosStock/{id}/{datoNuevo}/{columna}', 'StockController@modificarDatosStock');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();

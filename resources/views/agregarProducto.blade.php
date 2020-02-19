@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('css')
+<link rel="stylesheet" href="{{asset('css/estiloAgregarProducto.css')}}" type="text/css">
+@stop
 @section('content')
 <div class="container">
     <div class="row p-5 justify-content-center">
@@ -47,10 +50,10 @@
                 <div class="form-group">
                     <label for="categoria" class="font-weight-bold">Categoria del Producto</label>
                     <select name="category" class="form-control">
-                        <option>Selecciona una categoria</option>
-                        <option>Ropa</option>
-                        <option>Material</option>
-                        <option>Máquinas</option>
+                        <option value="">Selecciona una categoria</option>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Material">Material</option>
+                        <option value="Maquinas">Máquinas</option>
                     </select>
                 </div>
                 <div class="form-group">
