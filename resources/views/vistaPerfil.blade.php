@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <h1 class="text-center">Perfil</h1>
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8 col-sm-12 col-12 m-4 borde p-4">
+                <div class="col-lg-7 col-md-8 col-sm-12 col-12 m-4 borde p-4">
                     <form action="">
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -94,30 +94,8 @@
 
             </div>
             <h1 class="text-center mt-4">Historial de Pedidos</h1>
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8 col-sm-12 col-12 my-4 p-4 borde">
-                    <div class="form-row justify-content-between">
-                        <div class="form-group col-md-4">
-                            <label for="idPedido" class="font-weight-bold">Id del Pedido</label>
-                            <input type="text" class="form-control" id="idPedido" readonly>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="fechaPedido" class="font-weight-bold">Fecha del Pedido</label>
-                            <input type="date" class="form-control" id="fechaPedido" readonly>
-                        </div>
-                    </div> 
-                    <div class="form-row justify-content-between">
-                        <div class="form-group col-md-4">
-                            <label for="metodoPedido" class="font-weight-bold">Metodo de Pago</label>
-                            <input type="text" class="form-control" id="metodoPedido" readonly>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="precioPedido" class="font-weight-bold">Precio Total</label>
-                            <input type="text" class="form-control" id="precioPedido" readonly>
-                        </div>
-                    </div> 
-
-                </div>
+            <div class="row justify-content-center padre">
+                
             </div>
         </div>
     </body>

@@ -20,6 +20,7 @@ class CreateAddressTable extends Migration
             $table->string('location');
             $table->integer('number');
             $table->integer('postal_code');
+            $table->integer('door');
             $table->integer('floo');
             $table->string('type');
             $table->string('country');

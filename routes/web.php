@@ -32,4 +32,4 @@ Auth::routes();
 
 Route::get('/perfil','UserController@perfil');
 Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
-Route::get('/perfil/rellenarDireccion/{datosDireccion}','AdressController@crearDireccion');
+Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDireccion');

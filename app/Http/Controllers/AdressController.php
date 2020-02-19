@@ -18,11 +18,18 @@ class AdressController extends Controller
         $adress->location = $array->localidad;
         $adress->country = $array->provincia;
         $adress->number = $array->numero;
+        $adress->door = $array->puerta;
         $adress->postal_code = $array->cp;
         $adress->floo = $array->piso;
         $adress->type = "delivery_adress";
         $adress->save();
-        var_dump($array);
+
+    }
+
+    public function verDireccion(){
+
+        $datos = Adress::find(auth()->id());
+        return $datos;
 
     }
 
