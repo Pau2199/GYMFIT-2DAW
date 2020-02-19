@@ -47,10 +47,16 @@ class ProductController extends Controller
         $producto->price = $request->price;
         $producto->iva = 21;
         $producto->discount = $request->discount;
-        $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
-        $producto->weight = 21;
+        if($request->category == 'Ropa'){
+            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->subCategory)->get()[0]->id;
+        }else{
+            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
+
+        }
+        $producto->weight = $request->peso;
         $producto->save();
 
+        $id = DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
         $file = $request->file('file');
         //echo '<pre>';var_dump($file);echo '</pre>';
 
@@ -68,10 +74,18 @@ class ProductController extends Controller
             }
 
             $image->ruta = $ultimoId . '.'. $valor->getClientOriginalExtension();
-            $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
+            $image->idProducto=$id;
             $image->save();
             $path = $valor->storeAs('img', $image->ruta, 'public');
 
+            $stock = new Stock;
+            $stock->quantity = $request->stock;
+            $stock->idProducto = $id;
+            if($request->category == 'Ropa'){
+                $stock->colour = $request->color;  
+                $stock->size = $request->talla;  
+            }
+            $stock->save();
             return view('agregarProducto');
 
         }
@@ -141,18 +155,14 @@ class ProductController extends Controller
     public function vistaProductos($categoria){
         $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
         $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, s.quantity, s.colour, s.size FROM products p, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = s.idProducto');
-        for($i = 0 ; $i<2 ; $i++){
-            $imagenes = DB::select('SELECT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
+
+        for($i = 0 ; $i<count($productos) ; $i++){
+            $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
             $productos[$i]->img = $imagenes;
 
         }
-
-        echo '<pre>';var_dump($productos);echo '</pre>';
-        //        die;
-        //        //$envio = ['productos' => $productos, 'imagenes' => $imagenes];
-        //        $productos[0]->img = $imagenes;
-        //        $envio = ['productos' => $productos];
-        //        return view('vistaCategoria')->with('envio', $envio);
+        //        echo '<pre>';var_dump($productos);echo '</pre>';
+        return view('vistaCategoria')->with('productos', $productos);
     }
 
 }
