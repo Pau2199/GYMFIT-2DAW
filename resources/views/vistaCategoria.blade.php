@@ -1,3 +1,6 @@
+<?php 
+        echo '<pre>';var_dump($envio);echo '</pre>';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,44 +13,15 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-        <!--        <div class="container-fluid justify-content-center">
-<div class="row">
-<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
-<div class="card text-white bg-info mb-3" style="width: 18rem;">
-<img class="card-img-top" src="{{asset('img/11.png')}}" alt="Card image cap">
-<div class="card-body">
-<h5 class="card-title">Card title</h5>
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-</div>            
-<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
-<div class="card text-white bg-info mb-3" style="width: 18rem;">
-<img class="card-img-top" src="{{asset('img/11.png')}}" alt="Card image cap">
-<div class="card-body">
-<h5 class="card-title">Card title</h5>
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-</div>            
-<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
-<div class="card text-white bg-info mb-3" style="width: 18rem;">
-<img class="card-img-top" src="{{asset('img/11.png')}}" alt="Card image cap">
-<div class="card-body">
-<h5 class="card-title">Card title</h5>
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-</div>           
-</div>
-</div>-->
         <div class="container">
-
             <div class="row">
                 <div class="col-md-4">
+                
+                
+                
+                
+                
+<!--
                     <div class="card mb-4 box-shadow">
                         <img class="card-img-top" src="{{asset('img/11.png')}}" alt="Card image cap">
                         <div class="card-body">
@@ -125,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+-->
             </div>
         </div>
     </body>

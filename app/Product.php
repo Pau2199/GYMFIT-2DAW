@@ -7,10 +7,9 @@ class Product extends Model
 {
     protected $table = 'products';
     public $timestamps = false;
-    
-//    public function categories(){
-//        return $this->hasOne(related: 'App/Categorie');
-//    }
-    
-    
+
+    public function images(){
+        return $this->hasMany('App\Image');
+    }
+
 }

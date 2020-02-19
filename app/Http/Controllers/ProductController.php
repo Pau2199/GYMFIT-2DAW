@@ -140,8 +140,19 @@ class ProductController extends Controller
 
     public function vistaProductos($categoria){
         $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
-        $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, i.ruta, s.quantity, s.colour, s.size FROM products p , images i, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = i.idProducto AND p.id = s.idProducto');
-        return view('vistaCategoria')->with('productos', $productos);
+        $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, s.quantity, s.colour, s.size FROM products p, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = s.idProducto');
+        for($i = 0 ; $i<2 ; $i++){
+            $imagenes = DB::select('SELECT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
+            $productos[$i]->img = $imagenes;
+
+        }
+
+        echo '<pre>';var_dump($productos);echo '</pre>';
+        //        die;
+        //        //$envio = ['productos' => $productos, 'imagenes' => $imagenes];
+        //        $productos[0]->img = $imagenes;
+        //        $envio = ['productos' => $productos];
+        //        return view('vistaCategoria')->with('envio', $envio);
     }
 
 }
