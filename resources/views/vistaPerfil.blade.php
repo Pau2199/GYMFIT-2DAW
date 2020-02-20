@@ -20,6 +20,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-8 col-sm-12 col-12 m-4 borde p-4">
                     <form action="">
+
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="nombre" class="font-weight-bold">Nombre</label>
@@ -85,9 +86,9 @@
                             </div>                        
                             <div class="text-center mx-2 ">
                                 <span id="guardarDatos" class="btn btn-success" name="guardar">Guardar datos</span>
-                            </div>
+                            </div>  
+                         
                         </div>
-
                     </form>
                 </div>
 
@@ -95,7 +96,7 @@
             </div>
             <h1 class="text-center mt-4">Historial de Pedidos</h1>
             <div class="row justify-content-center padre">
-                
+
             </div>
         </div>
     </body>

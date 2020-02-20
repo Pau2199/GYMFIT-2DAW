@@ -44,6 +44,7 @@ class AdressController extends Controller
         $address->$columna = $datoNuevo;
         $address->save();
 
+
     }
 
 }
