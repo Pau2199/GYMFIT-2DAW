@@ -7,7 +7,7 @@
 @stop
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row padre">
         @foreach($productos as $key => $valor)
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
@@ -16,7 +16,7 @@
                     <p class="card-text">{{$valor->description}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div id="P{{$valor->id}}" class="btn-group text-center">
-                            <span id="anyadirCarrito" class="btn btn-info">Comprar</span>
+                            <span class="btn btn-info anyadirCarrito">Comprar</span>
                         </div>
                     </div>
                 </div>

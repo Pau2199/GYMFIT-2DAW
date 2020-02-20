@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index($categoria)
     {
-        $productos = ProductController::obtenerProductos($categoria, 0);
+        $productos = ProductController::obtenerProductos($categoria, 1);
         return view('vistaCategoria')->with('productos', $productos);
     }
 
@@ -154,15 +154,17 @@ class ProductController extends Controller
     }
 
     public static function obtenerProductos($categoria, $numpag){
-        
+        $numpag = ($numpag*5)-1 ;
         $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
-        $productos = Product::all()->where('idCategoria','=', $datosCategoria[0]['id'])->skip($numpag)->take(5);
+        $productos = DB::table('products')->where('idCategoria', '=', $datosCategoria[0]['id'])->skip($numpag)->take(5)->get();
+        //        $productos = Product::all()->where('idCategoria','=', $datosCategoria[0]['id'])->skip(10)->take(5);
         for($i = 0 ; $i<count($productos) ; $i++){
             $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
             $productos[$i]->img = $imagenes;
 
         }
-        //        echo '<pre>';var_dump($productos);echo '</pre>';
+        
+//        echo '<pre>';var_dump($productos);echo '</pre>';
         return $productos;
     }
 
