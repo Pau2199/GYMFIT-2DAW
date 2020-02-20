@@ -26,7 +26,7 @@ class AddForeignKeyToCategoriesTable extends Migration
     public function down()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->dropForeign('products_idCategoria_foreign');
+            $table->dropForeign('categories_idCategoria_foreign');
         });
     }
 }
