@@ -35,7 +35,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".opciones">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- enlaces --> 
     <ul class="collapse navbar-collapse navbar-nav opciones">
         <li class="nav-item">
             <a class="nav-link" href="{{url('categoria/Ropa')}}">Ropa</a>
