@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use DB;
 use App\Product;
 use App\Image;
+use App\Categorie;
+use App\Stock;
 
 class ProductController extends Controller
 {
@@ -45,21 +47,47 @@ class ProductController extends Controller
         $producto->price = $request->price;
         $producto->iva = 21;
         $producto->discount = $request->discount;
-        $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
-        $producto->weight = 21;
+        if($request->category == 'Ropa'){
+            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->subCategory)->get()[0]->id;
+        }else{
+            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
+
+        }
+        $producto->weight = $request->peso;
         $producto->save();
 
+        $id = DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
         $file = $request->file('file');
+        //echo '<pre>';var_dump($file);echo '</pre>';
+
         foreach ($file as $valor){
+            //echo '<pre>';var_dump($valor);echo '</pre>';
+            //die;
             $image = new Image;
-            if($request->category == 'Ropa'){
-                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();   
+            $ultimoId = DB::select('SELECT MAX(id) FROM images');
+
+            if($ultimoId[0]->{'MAX(id)'} == null){
+                $ultimoId = 1;
             }else{
-                $image->move('subidas', $valor->getClientOriginalName());
-                $image->ruta = 'public'.'/'.$request->category.'/'.$request->subCategory.'/'.$valor->getClientOriginalName();
+                $ultimoId = $ultimoId[0]->{'MAX(id)'};
+                $ultimoId += 1;
             }
-            $image->idProducto=DB::table('products')->select('id')->where('name', $request->name)->get()[0]->id;
-            $image->save();   
+
+            $image->ruta = $ultimoId . '.'. $valor->getClientOriginalExtension();
+            $image->idProducto=$id;
+            $image->save();
+            $path = $valor->storeAs('img', $image->ruta, 'public');
+
+            $stock = new Stock;
+            $stock->quantity = $request->stock;
+            $stock->idProducto = $id;
+            if($request->category == 'Ropa'){
+                $stock->colour = $request->color;  
+                $stock->size = $request->talla;  
+            }
+            $stock->save();
+            return view('agregarProducto');
+
         }
     }
 
@@ -80,9 +108,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $columna, $datoNuevo)
     {
-        //
+        $producto = Product::find($id);
+        $producto->$columna = $datoNuevo;
+        $producto->save();
     }
 
     /**
@@ -108,8 +138,31 @@ class ProductController extends Controller
         Product::destroy($id);
     }
 
-    public function peticionAjax($categoria){
-        return $productos = DB::select('SELECT p.name, p.brand, p.description, p.price, p.discount, p.weight, c.name_category, p.id FROM products p , category c WHERE c.name_category= "'.$categoria.'" AND c.id = p.idCategoria');
+    public function productosCategoria($categoria){
+        //        $subCategoria;
+        //        if($subCategoria != null){
+        //            $subCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        //        }
+        $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        $productos = Product::all()->where('idCategoria', $datosCategoria[0]['id']);
+        return array($productos, $datosCategoria[0]['name_category']);
+    }
+
+    public function productosSubCategoria($subCategoria){
 
     }
+
+    public function vistaProductos($categoria){
+        $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
+        $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, s.quantity, s.colour, s.size FROM products p, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = s.idProducto');
+
+        for($i = 0 ; $i<count($productos) ; $i++){
+            $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
+            $productos[$i]->img = $imagenes;
+
+        }
+        //        echo '<pre>';var_dump($productos);echo '</pre>';
+        return view('vistaCategoria')->with('productos', $productos);
+    }
+
 }
