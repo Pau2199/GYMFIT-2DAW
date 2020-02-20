@@ -10,9 +10,6 @@ $(function(){
             method: "GET",
             success: function(data){
                 console.log(data);
-                if(data.length == 0){
-                    $('#cargarMasProductos').hide();
-                }else{
                     for(var i=0 ; i<data.length ; i++){
                         var div0 = $('<div>').addClass('col-md-4');
                         var div1 = $('<div>').addClass('card mb-4 box-shadow');
@@ -34,7 +31,6 @@ $(function(){
 
                     }
                 }
-            }
         })
     })    
 

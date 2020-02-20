@@ -129,7 +129,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -161,7 +161,6 @@ class ProductController extends Controller
         for($i = 0 ; $i<count($productos) ; $i++){
             $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
             $productos[$i]->img = $imagenes;
-
         }
         
 //        echo '<pre>';var_dump($productos);echo '</pre>';
