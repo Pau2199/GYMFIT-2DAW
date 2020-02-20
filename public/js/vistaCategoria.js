@@ -1,19 +1,20 @@
 $(function(){
-    var numPag=-1;
+    var numPag=0;
     var categoria = window.location.href
     categoria = categoria.split('/')[4];
-    cargarProductos(categoria, numPag);
-    function cargarProductos(categoria, numPag){
-        numPag++;
+    console.log(categoria);
+    $('#cargarMasProductos').click(function(){
+        numPag++
         $.ajax({
-            url: '/categoria/{category}/'+numPag,  
+            url:'/categoria/'+categoria+'/'+numPag,
             method: "GET",
-            succes: function(data){
-                
+            success: function(data){
+                console.log(data);
             }
-        });
+        })
+    })    
 
-    }
+    $
     $('#anyadirCarrito').click(function(){
         if(localStorage.getItem('productos') != null){
             var id = $(this).parent().attr('id').split('P')[1];

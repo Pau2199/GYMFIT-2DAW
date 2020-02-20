@@ -7,14 +7,13 @@
 @stop
 @section('content')
 <div class="container">
-    <div id="row" class="row">
-        @foreach($productos as $valor)
+    <div class="row">
+        @foreach($productos as $key => $valor)
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{asset('img/logo.png')}}" alt="imagen">
+                <img class="card-img-top" src="/storage/img/{{$valor->img[0]->ruta}}" alt="imagen">
                 <div class="card-body">
                     <p class="card-text">{{$valor->description}}</p>
-                    <p class="card-text">asasasassasasasas</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div id="P{{$valor->id}}" class="btn-group text-center">
                             <span id="anyadirCarrito" class="btn btn-info">Comprar</span>
@@ -25,5 +24,6 @@
         </div>
         @endforeach
     </div>
+    <span id="cargarMasProductos" class="btn btn-info">Cargar más Productos</span>
 </div>
 @stop

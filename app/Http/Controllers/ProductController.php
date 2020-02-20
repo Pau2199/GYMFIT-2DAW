@@ -17,9 +17,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($categoria)
     {
-        //
+        $productos = ProductController::obtenerProductos($categoria, 0);
+        return view('vistaCategoria')->with('productos', $productos);
     }
 
     /**
@@ -152,21 +153,17 @@ class ProductController extends Controller
 
     }
 
-    public function vistaProductos($categoria, $numpag){
-        if($numpag != 0){
-            $numpag = (numpag-1)*10;
-        }
+    public static function obtenerProductos($categoria, $numpag){
+        
         $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
-/*        $productos = DB::select('SELECT p.id, p.name, p.brand, p.description, p.price, p.iva, p.discount, p.weight, s.quantity, s.colour, s.size FROM products p, stocks s WHERE p.idCategoria = "' . $datosCategoria[0]['id'] .'" AND p.id = s.idProducto');*/
-        $productos = Product::all()->where('idCategoria','=', $datosCategoria[0]['id'])->skip($numpag)->take(10);
+        $productos = Product::all()->where('idCategoria','=', $datosCategoria[0]['id'])->skip($numpag)->take(5);
+        for($i = 0 ; $i<count($productos) ; $i++){
+            $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
+            $productos[$i]->img = $imagenes;
 
-//        for($i = 0 ; $i<count($productos) ; $i++){
-//            $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
-//            $productos[$i]->img = $imagenes;
-//
-//        }
+        }
         //        echo '<pre>';var_dump($productos);echo '</pre>';
-        return view('vistaCategoria')->with('productos', $productos);
+        return $productos;
     }
 
 }
