@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorie extends Model
 {
-    protected $table = 'category';
+    protected $table = 'categories';
     public $timestamps = false;
 
 

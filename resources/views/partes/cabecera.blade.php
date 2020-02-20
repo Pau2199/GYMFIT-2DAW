@@ -38,13 +38,13 @@
     <!-- enlaces --> 
     <ul class="collapse navbar-collapse navbar-nav opciones">
         <li class="nav-item">
-            <a class="nav-link" href="#">Ropa</a>
+            <a class="nav-link" href="{{url('categoria/Ropa')}}">Ropa</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Maquinas</a>
+            <a class="nav-link" href="{{url('categoria/Maquinas')}}">Maquinas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Accesorios</a>
+            <a class="nav-link" href="{{url('categoria/Accesorios')}}">Accesorios</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{url('formAgregarProducto')}}">Agregar Producto</a>

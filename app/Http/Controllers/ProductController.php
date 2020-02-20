@@ -48,9 +48,9 @@ class ProductController extends Controller
         $producto->iva = 21;
         $producto->discount = $request->discount;
         if($request->category == 'Ropa'){
-            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->subCategory)->get()[0]->id;
+            $producto->idCategoria=DB::table('categories')->select('id')->where('name_category', $request->subCategory)->get()[0]->id;
         }else{
-            $producto->idCategoria=DB::table('category')->select('id')->where('name_category', $request->category)->get()[0]->id;
+            $producto->idCategoria=DB::table('categories')->select('id')->where('name_category', $request->category)->get()[0]->id;
 
         }
         $producto->weight = $request->peso;
