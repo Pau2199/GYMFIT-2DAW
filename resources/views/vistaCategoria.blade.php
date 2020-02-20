@@ -11,7 +11,7 @@
         @foreach($productos as $key => $valor)
         <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="/storage/img/{{$valor->img[0]->ruta}}" alt="imagen">
+                <img class="card-img-top" src="/storage/img/1.jpg" alt="imagen">
                 <div class="card-body">
                     <p class="card-text">{{$valor->description}}</p>
                     <div class="d-flex justify-content-between align-items-center">
