@@ -36,3 +36,7 @@ Route::get('/categoria/{ropa}', 'ProductController@vistaProductos');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
+
+Route::get('/perfil','UserController@perfil');
+Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
+Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDireccion');

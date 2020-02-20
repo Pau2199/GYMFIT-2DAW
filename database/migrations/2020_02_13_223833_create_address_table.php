@@ -15,10 +15,12 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type_way',100);
             $table->string('name',100);
             $table->string('location');
             $table->integer('number');
             $table->integer('postal_code');
+            $table->integer('door');
             $table->integer('floo');
             $table->string('type');
             $table->string('country');

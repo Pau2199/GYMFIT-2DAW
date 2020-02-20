@@ -78,6 +78,17 @@
                                 <input id="second_surname" type="text" class="form-control" name="second_surname" required autocomplete="second_surname">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="date_birth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de Nacimiento') }}</label>
+                            <div class="col-md-6">
+                                <input id="date_birth" type="date" class="form-control" name="date_birth" required autocomplete="date_birth">
+                            </div>
+                        </div>                        
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <input id="role" type="hidden" class="form-control" name="role" value="user" required autocomplete="role">
+                            </div>
+                        </div>
                         <div class="form-group row mb-0 text-center">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

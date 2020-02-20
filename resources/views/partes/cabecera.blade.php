@@ -9,9 +9,12 @@
                 <button class="btn btn-outline-success my-2" type="submit">Buscar</button>
             </form>
         </div>
-        <div class="d-none d-md-block col-md-2 mt-5">
-            <img class="svgTamanyo mr-md-2 mr-lg-5" src="{{asset('img/user.svg')}}" alt="Control Usuario">
-            <img class="svgTamanyo" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra">
+        <div class="d-none d-md-block col-md-2">
+            <a href="{{{ Auth::user() ? url('perfil') : url('login') }}}"><img class="svgTamanyo iconosMovil ml-5" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
+
+
+            <a href=""  class="botonCabecera"><img class="svgTamanyo iconosMovil ml-4" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
+
         </div>
         <div class="d-block d-md-none col-12">
             <div class="container-fluid">
@@ -20,8 +23,8 @@
                         <img class="logoTipoMovil" src="{{asset('img/logo.png')}}" alt="Logo Página">
                     </div>
                     <div class="col-6">
-                        <img class="svgTamanyo iconosMovil ml-5" src="{{asset('img/user.svg')}}" alt="Control Usuario">
-                        <img class="svgTamanyo iconosMovil ml-4" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra">
+                        <a href="" class="botonCabecera"><img class="svgTamanyo iconosMovil ml-5" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
+                        <a href="" class="botonCabecera"><img class="svgTamanyo iconosMovil ml-4" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
                     </div>
                 </div>
             </div>
