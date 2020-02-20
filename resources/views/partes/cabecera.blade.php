@@ -35,13 +35,12 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".opciones">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- enlaces --> 
     <ul class="collapse navbar-collapse navbar-nav opciones">
         <li class="nav-item">
             <a class="nav-link" href="{{url('categoria/Ropa')}}">Ropa</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url('categoria/Maquinas')}}">Maquinas</a>
+            <a class="nav-link" href="{{url('categoria/Materiales')}}">Materiales</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{url('categoria/Accesorios')}}">Accesorios</a>
