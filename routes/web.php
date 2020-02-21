@@ -43,3 +43,7 @@ Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
 Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDireccion');
 Route::get('/perfil/modificar/{datoNuevo}/{columna}','AdressController@modificar');
 Route::get('/perfil/borrar','UserController@borrar');
+
+Route::get('/carrito', function(){
+    return view('vistaCarrito');
+});

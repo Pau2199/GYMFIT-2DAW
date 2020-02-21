@@ -33,6 +33,10 @@ $(function(){
             }
         })
     })    
-
-
+    var arrayProductos = [];
+    $('.anyadirCarrito').click(function(){
+        var id = $(this).parent().attr('id').split('P')[1];
+        arrayProductos.push(id);
+        localStorage.setItem('productos', arrayProductos);
+    });
 });
