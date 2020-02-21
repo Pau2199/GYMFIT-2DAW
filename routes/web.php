@@ -47,3 +47,13 @@ Route::get('/perfil/borrar','UserController@borrar');
 Route::get('/carrito', function(){
     return view('vistaCarrito');
 });
+
+Route::get('/carrito/mostrar/{id}','ProductController@meterCarrito');
+
+Route::get('/pagar', function(){
+    return view('realizarPago');
+});
+
+
+Route::get('/pagar/{datos}','OrderController@pedido');
+  

@@ -5,9 +5,13 @@
         <title>GYMFIT</title>
         <link rel="stylesheet" href="{{asset('css/estiloCrud.css')}}" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.js"
+                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+                crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="{{asset('js/tarjeta.js')}}"></script>
     </head>
     <body>
 
@@ -19,13 +23,13 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" id="numTarjeta" placeholder="Escriba Numero Tarjeta" />
+                                        <input type="number" class="form-control" id="numTarjeta" placeholder="Escriba Numero Tarjeta"/>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span class="help-block text-muted small-font" > Mes Expira</span>
-                                        <input type="text" class="form-control" id="mesExpira" placeholder="MM" />
+                                        <input type="text" class="form-control" id="mesExpira" placeholder="MM"/>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span class="help-block text-muted small-font" >  Año Expira</span>
@@ -33,7 +37,7 @@
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span class="help-block text-muted small-font" >  CCV</span>
-                                        <input type="text" class="form-control" id="cvv" placeholder="CCV" />
+                                        <input type="text" class="form-control" id="cvv" placeholder="CCV"/>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -42,6 +46,7 @@
                                         <input type="text" class="form-control" id="dueñoTarjeta" placeholder="Nombre del propietario" />
                                     </div>
                                 </div>
+<!--
                                 <div class="row">
                                     <div class="col-md-12 pad-adjust">
                                         <div class="checkbox">
@@ -51,12 +56,14 @@
                                         </div>
                                     </div>
                                 </div>
+-->
                                 <div class="row ">
                                     <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                        <input type="submit"  id="cancelarPago" class="btn btn-danger" value="CANCELAR" />
+                                        <a href="{{url('carrito')}}"> <span id="cancelarPago" class="btn btn-danger">CANCELAR</span></a>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                                        <input type="submit" id="aceptarPago" class="btn btn-warning btn-block" value="PAGAR YA" />
+
+                                      <span id="aceptarPago" class="btn btn-warning btn-block">PAGAR YA!</span>
                                     </div>
                                 </div>
 

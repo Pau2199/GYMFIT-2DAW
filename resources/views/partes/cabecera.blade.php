@@ -12,7 +12,7 @@
         <div class="d-none d-md-block col-md-2">
             <a href="{{{ Auth::user() ? url('perfil') : url('login') }}}"><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
          
-            <a href="" ><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
+            <a href="{{url('carrito')}}" ><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
 
         </div>
         <div class="d-block d-md-none col-12">
@@ -24,7 +24,7 @@
                     <div class="col-6">
                         <a href="" ><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/user.svg')}}" alt="Control Usuario"></a>
                      
-                        <a href="" ><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
+                        <a href="{{url('carrito')}}" ><img class="svgTamanyo iconosMovil ml-3" src="{{asset('img/carritoCompra.svg')}}" alt="Carrito de la Compra"> </a>
                     </div>
                 </div>
             </div>
