@@ -18,13 +18,13 @@
                 <h6 class="text-uppercase font-weight-bold">Productos</h6>
                 <hr class="mb-4 mt-0 d-inline-block w-50">
                 <p>
-                    <a class="text-warning" href="#!">Ropa</a>
+                    <a class="text-warning" href="{{url('categoria/Ropa')}}">Ropa</a>
                 </p>
                 <p>
-                    <a class="text-warning" href="#!">Materiales</a>
+                    <a class="text-warning" href="{{url('categoria/Materiales')}}">Materiales</a>
                 </p>
                 <p>
-                    <a class="text-warning" href="#!">Maquinas</a>
+                    <a class="text-warning" href="{{url('categoria/Accesorios')}}">Accesorios</a>
                 </p>
             </div>
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-3">

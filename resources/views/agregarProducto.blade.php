@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Agregar Producto</title>
+@stop
 @section('css')
 <link rel="stylesheet" href="{{asset('css/estiloAgregarProducto.css')}}" type="text/css">
 @stop
@@ -13,7 +16,7 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="nombre" class="font-weight-bold">Nombre Producto</label>
-                    <input type="text" name="name" class="form-control" required placeholder="Escriba el nombre del producto aqui...">
+                    <input id="nombre" type="text" name="name" class="form-control" required placeholder="Escriba el nombre del producto aqui...">
                     <!--                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
                 </div>                        
                 <div class="form-group">

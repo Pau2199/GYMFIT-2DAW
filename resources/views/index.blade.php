@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Index</title>
+@stop
 @section('content')
 <div id="carouselImagenes" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -26,24 +29,24 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
     </a>
 </div>
-<h2 class="text-center text-uppercase font-weight-bold mt-2">Más vendidos</h2>
-<div class="container-fluid">
-    <div class="row justify-content-center text-center mb-5">
+<div class="container">
+    <div class="row">
+        @foreach($productos as $key => $valor)
         <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="/storage/img/1.jpg" alt="imagen">
+                <div class="card-body">
+                    <p class="card-text">{{$valor->description}}</p>
+                    <p class="card-text">{{$valor->price}}€</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div id="P{{$valor->id}}" class="btn-group text-center">
+                            <span class="btn btn-info anyadirCarrito">Comprar</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @stop

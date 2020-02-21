@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('titulo')
-<title>Lista Productos</title>
+<title>Modificar Productos</title>
 @stop
 @section('css')
 <link rel="stylesheet" href="{{asset('css/estiloCrud.css')}}" type="text/css">
@@ -11,7 +11,7 @@
 @section('content')
 <div class="container-fluid">
     <h1 class="m-5 text-center p-3">Lista de Productos</h1>
-    <div class="row justify-content-around text-center m-5">
+    <div class="row justify-content-center text-center m-5">
         <div class="col-md-8 col-sm-12 my-3">
             <form action="">
                 <div class="form-group">
@@ -35,7 +35,7 @@
                     </select>
                 </div>
                 <div class="form-inline my-5">
-                    <input class="form-control mr-sm-2" type="text" id="buscarProducto" placeholder="Buscar producto" aria-label="Buscar">
+                    <input class="form-control mr-sm-2 w-75" type="text" id="buscarProducto" placeholder="Buscar producto" aria-label="Buscar">
                     <button class="btn btn-outline-success ml-sm-3" type="submit">Buscar</button>
                 </div>
             </form>

@@ -26,5 +26,17 @@ class UserController extends Controller
         return array($datos, $direccion, $pedidos);
 
     }
+    
+    public function cargarUsuarios(){
+        $user = User::all();
+        return view('crudUsuarios')->with('user', $user);
+    }
+
+    public function borrar(){
+
+        $user = User::find(auth()->id());
+
+        $user->delete();
+    }
 
 }
