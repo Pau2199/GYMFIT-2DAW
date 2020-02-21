@@ -159,4 +159,20 @@ class ProductController extends Controller
         return $productos;
     }
 
+    public function meterCarrito($array){
+
+
+        $ids=explode(',',$array);
+
+
+        for($i = 0 ; $i<count($ids) ; $i++){
+
+            $product = Product::find($ids[$i]);
+            $products[$i] = $product;
+
+        }        
+
+        return $products;
+    }
+
 }

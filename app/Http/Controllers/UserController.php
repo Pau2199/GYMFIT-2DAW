@@ -32,4 +32,11 @@ class UserController extends Controller
         return view('crudUsuarios')->with('user', $user);
     }
 
+    public function borrar(){
+
+        $user = User::find(auth()->id());
+
+        $user->delete();
+    }
+
 }

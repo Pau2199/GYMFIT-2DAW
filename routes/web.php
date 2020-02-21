@@ -41,9 +41,21 @@ Auth::routes();
 Route::get('/perfil','UserController@perfil');
 Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
 Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDireccion');
+Route::get('/perfil/modificar/{datoNuevo}/{columna}','AdressController@modificar');
+Route::get('/perfil/borrar','UserController@borrar');
 
 Route::get('/carrito', function(){
     return view('vistaCarrito');
 });
 
 Route::get('/listaUsuarios', 'UserController@cargarUsuarios');
+
+Route::get('/carrito/mostrar/{id}','ProductController@meterCarrito');
+
+Route::get('/pagar', function(){
+    return view('realizarPago');
+});
+
+
+Route::get('/pagar/{datos}','OrderController@pedido');
+  
