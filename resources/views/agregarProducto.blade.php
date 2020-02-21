@@ -62,9 +62,9 @@
                     <label for="categoria" class="font-weight-bold">Categoria del Producto</label>
                     <select id="category" name="category" class="form-control">
                         <option value="">Selecciona una categoria</option>
-                        <option value="Ropa">Ropa</option>
-                        <option value="Material">Material</option>
-                        <option value="Maquinas">Máquinas</option>
+                        <option>Ropa</option>
+                        <option>Material</option>
+                        <option>Accesorios</option>
                     </select>
                 </div>
                 <div class="form-group" id="subCategory">
