@@ -1,3 +1,4 @@
 $(function(){
-    console.log(localStorage.getItem('productos'));
+    var productos = localStorage.getItem('productos').split('');
+    console.log(productos);
 })

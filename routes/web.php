@@ -42,3 +42,6 @@ Route::get('/perfil','UserController@perfil');
 Route::get('/perfil/rellenarPerfil','UserController@verPerfil');
 Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDireccion');
 
+Route::get('/carrito', function(){
+    return view('vistaCarrito');
+});
