@@ -30,19 +30,10 @@
 <div class="container-fluid">
     <div class="row justify-content-center text-center mb-5">
         <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
-            </div>
         </div>
         <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
-            </div>
         </div>
         <div class="col-md-4">
-            <div>
-                <img class="imgaenesProductos" src="{{asset('img/productos/pantalones.jpg')}}" alt="pantalones">
-            </div>
         </div>
     </div>
 </div>

@@ -45,3 +45,5 @@ Route::get('/perfil/crearDireccion/{datosDireccion}','AdressController@crearDire
 Route::get('/carrito', function(){
     return view('vistaCarrito');
 });
+
+Route::get('/listaUsuarios', 'UserController@cargarUsuarios');

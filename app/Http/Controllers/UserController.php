@@ -26,5 +26,10 @@ class UserController extends Controller
         return array($datos, $direccion, $pedidos);
 
     }
+    
+    public function cargarUsuarios(){
+        $user = User::all();
+        return view('crudUsuarios')->with('user', $user);
+    }
 
 }

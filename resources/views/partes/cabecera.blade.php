@@ -1,7 +1,7 @@
 <header class="container-fluid">
     <div class="row justify-content-between">
         <div class="col-md-4 d-md-block d-none my-4">
-            <img class="logotipo" src="{{asset('img/logo.png')}}" alt="Logo Página">
+            <a href="{{url('/')}}"><img class="logotipo" src="{{asset('img/logo.png')}}" alt="Logo Página"></a>
         </div>
         <div class="my-md-4 col-md-6 d-md-block d-none search">
             <form class="form-inline">
@@ -36,6 +36,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <ul class="collapse navbar-collapse navbar-nav opciones">
+        @if(Auth::user()->role == 'user')
         <li class="nav-item">
             <a class="nav-link" href="{{url('categoria/Ropa')}}">Ropa</a>
         </li>
@@ -45,6 +46,15 @@
         <li class="nav-item">
             <a class="nav-link" href="{{url('categoria/Accesorios')}}">Accesorios</a>
         </li>
+        @else
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('categoria/Ropa')}}">Ropa</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('categoria/Materiales')}}">Materiales</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('categoria/Accesorios')}}">Accesorios</a>
         <li class="nav-item">
             <a class="nav-link" href="{{url('formAgregarProducto')}}">Agregar Producto</a>
         </li>
@@ -52,8 +62,9 @@
             <a class="nav-link" href="{{url('mostrar')}}">Listado Productos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Listado Usuarios</a>
+            <a class="nav-link" href="{{url('listaUsuarios')}}">Listado Usuarios</a>
         </li>
+        @endif
     </ul>
     <div class="d-md-none d-block">
         <form class="form-inline">
