@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('titulo')
+<title>Modificar Usuarios</title>
+@stop
 @section('css')
 <link rel="stylesheet" href="{{asset('css/estiloAgregarProducto.css')}}" type="text/css">
 @stop

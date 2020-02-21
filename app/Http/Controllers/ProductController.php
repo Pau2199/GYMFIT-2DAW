@@ -175,4 +175,13 @@ class ProductController extends Controller
         return $products;
     }
 
+    public function indexPag(){
+        $productos = Product::all();
+        for ($i = 0 ; $i<count($productos); $i++){
+            $imagenes = DB::select('SELECT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'" AND 1 = 1');
+            $productos[$i]->img = $imagenes;
+        }
+        return view('index')->with('productos', $productos);
+    }
+
 }

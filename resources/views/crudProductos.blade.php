@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('titulo')
-<title>Lista Productos</title>
+<title>Modificar Productos</title>
 @stop
 @section('css')
 <link rel="stylesheet" href="{{asset('css/estiloCrud.css')}}" type="text/css">

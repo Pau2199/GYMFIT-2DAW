@@ -14,6 +14,7 @@
                 <img class="card-img-top" src="/storage/img/1.jpg" alt="imagen">
                 <div class="card-body">
                     <p class="card-text">{{$valor->description}}</p>
+                    <p class="card-text">{{$valor->price}} €</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div id="P{{$valor->id}}" class="btn-group text-center">
                             <span class="btn btn-info anyadirCarrito">Comprar</span>

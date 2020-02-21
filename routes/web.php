@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function(){
-    return view('index');
-});
+Route::get('/', 'ProductController@indexPag');
 
 Route::get('/formAgregarProducto', 'ProductController@create');
 Route::post('/agregarProducto', 'ProductController@store');
@@ -58,4 +56,5 @@ Route::get('/pagar', function(){
 
 
 Route::get('/pagar/{datos}','OrderController@pedido');
+Route::get('logout',["as" => "logout", "uses" => 'HomeController@logout']);
   
