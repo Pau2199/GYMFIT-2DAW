@@ -86,8 +86,11 @@
                             </div>                        
                             <div class="text-center mx-2 ">
                                 <span id="guardarDatos" class="btn btn-success" name="guardar">Guardar datos</span>
+                            </div>     
+                            <div class="text-center mx-2 ">
+                                <a href="{{ url('/')}}" ><span id="eliminarUsuario" class="btn btn-danger" name="eliminar">Eliminar Cuenta</span></a>
                             </div>  
-                         
+
                         </div>
                     </form>
                 </div>

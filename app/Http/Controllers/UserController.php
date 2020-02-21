@@ -27,4 +27,11 @@ class UserController extends Controller
 
     }
 
+    public function borrar(){
+
+        $user = User::find(auth()->id());
+
+        $user->delete();
+    }
+
 }

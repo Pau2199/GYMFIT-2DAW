@@ -86,7 +86,7 @@ $(function(){
         var input = $('input');
         input.each(function(){
             if($(this).html() == ""){
-                
+
             }
         })
         $('#guardarDatos').show();
@@ -134,5 +134,11 @@ $(function(){
         });
     })
 
+    $('#eliminarUsuario').click(function(){
+        $.ajax({
+            url: "/perfil/borrar",
+            method: "GET",
+        });
+    })
 
 });

@@ -1,7 +1,7 @@
 <header class="container-fluid">
     <div class="row justify-content-between">
         <div class="col-md-4 d-md-block d-none my-4">
-            <img class="logotipo" src="{{asset('img/logo.png')}}" alt="Logo Página">
+          <a href="{{url('/')}}"><img class="logotipo" src="{{asset('img/logo.png')}}" alt="Logo Página"></a>  
         </div>
         <div class="my-md-4 col-md-6 d-md-block d-none search">
             <form class="form-inline">
@@ -52,7 +52,7 @@
             <a class="nav-link" href="{{url('mostrar')}}">Listado Productos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Listado Usuarios</a>
+            <a class="nav-link" href="{{url('mostrar')}}">Listado Usuarios</a>
         </li>
     </ul>
     <div class="d-md-none d-block">
