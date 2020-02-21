@@ -48,12 +48,8 @@ class ProductController extends Controller
         $producto->price = $request->price;
         $producto->iva = 21;
         $producto->discount = $request->discount;
-        if($request->category == 'Ropa'){
-            $producto->idCategoria=DB::table('categories')->select('id')->where('name_category', $request->subCategory)->get()[0]->id;
-        }else{
-            $producto->idCategoria=DB::table('categories')->select('id')->where('name_category', $request->category)->get()[0]->id;
-
-        }
+        $datosCategoria = DB::select('SELECT id FROM categories WHERE name_category = "'.$request->category.'"');
+        $producto->idCategoria=$datosCategoria[0]->id;
         $producto->weight = $request->peso;
         $producto->save();
 
@@ -140,9 +136,9 @@ class ProductController extends Controller
     }
 
     public function productosCategoria($categoria){
-        $datosCategoria = Categorie::all()->where('name_category', '=', $categoria);
-        $productos = Product::all()->where('idCategoria', $datosCategoria[0]['id']);
-        return array($productos, $datosCategoria[0]['name_category']);
+        $datosCategoria = DB::select('SELECT id FROM categories WHERE name_category = "'.$categoria.'"');
+        $productos = Product::all()->where('idCategoria', $datosCategoria[0]->id);
+        return array($productos, $datosCategoria[0]->id);
     }
 
     public function productosSubCategoria($subCategoria){
@@ -152,14 +148,14 @@ class ProductController extends Controller
     public static function obtenerProductos($categoria, $numpag){
         $numpag = ($numpag*5)-1 ;
         $datosCategoria = DB::select('SELECT id FROM categories WHERE name_category = "'.$categoria.'"');
-//        echo '<pre>';var_dump($datosCategoria);echo '</pre>';
+        //        echo '<pre>';var_dump($datosCategoria);echo '</pre>';
         $productos = DB::table('products')->where('idCategoria', '=', $datosCategoria[0]->id)->skip($numpag)->take(5)->get();
         for($i = 0 ; $i<count($productos) ; $i++){
             $imagenes = DB::select('SELECT DISTINCT i.ruta FROM images i , products p WHERE i.idProducto = "'. $productos[$i]->id .'"');
             $productos[$i]->img = $imagenes;
         }
-        
-//        echo '<pre>';var_dump($productos);echo '</pre>';
+
+        //        echo '<pre>';var_dump($productos);echo '</pre>';
         return $productos;
     }
 
